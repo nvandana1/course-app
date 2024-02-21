@@ -4,14 +4,14 @@
     gap: 10px;
     padding: 10px;
 }
-.navbar{
-    @extend .grid;
-    grid-template-columns: repeat( auto-fill, minmax(65px, 1fr));
-    align-items: center;
-    justify-items: center;
-    background-color: rgb(250, 248, 248);
-}
+.navbar {
 
+    @extend .grid;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    align-items: center;
+    box-shadow: 3px 7px 5px -7px rgb(214 210 210 / 30%);
+    justify-items: center;
+}
 *{
     margin: 0;
 }

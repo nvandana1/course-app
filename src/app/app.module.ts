@@ -10,20 +10,19 @@ import { CartComponent } from './component/cart/cart.component';
 import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeComponent,
-    CoursesComponent,
-    WishlistComponent,
-    CartComponent,
-    ProfileComponent,
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HomeComponent,
+        CoursesComponent,
+        WishlistComponent,
+        CartComponent,
+        ProfileComponent,
+    ]
 })
 export class AppModule { }
