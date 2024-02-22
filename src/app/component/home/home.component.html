@@ -1,1 +1,32 @@
-<p>home works!</p>
+<div class="frame">
+    <h1 class="text-align-center banner">{{banner}}</h1>
+    <div class="grid courses">
+        <div *ngFor="let item of data;let i=index" class="grid card">
+            <div>
+                <div style="text-decoration: underline;" class="link">{{item.courseName}}<span class="fa fa-arrow-right"></span></div>
+            </div>
+            <div class="grid">
+               <div>
+                Author : 
+                {{item.author}}
+               </div>
+               <div>
+                Actual Price : 
+                {{item.actualPrice}}
+               </div><div>
+                Discount % :
+                {{item.discountPercentage}}
+               </div><div>
+                Tags :
+                {{item.tags}}
+               </div>
+            </div>
+            <div class="grid-fit wish-cart">
+                <button class="primary" type="submit">Cart</button>
+
+                <span [ngClass]="checked?'fa fa-star checked link':'fa fa-star link'"></span>
+            </div>
+        </div>
+    </div>
+    
+</div>
