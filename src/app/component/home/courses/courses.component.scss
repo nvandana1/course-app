@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+
+.courses{
+  grid-template-columns: repeat(auto-fill,21rem);
+}
+
+.checked{
+  color: orange;
+}
+
+.wish-cart{
+  grid-template-columns: 1fr auto;
+
+}
+
+.course{
+  /* text-decoration: underline; */
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  font-weight: 600;
+}

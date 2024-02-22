@@ -16,3 +16,11 @@
     grid-template-columns: 1fr auto;
 
 }
+
+.course{
+    /* text-decoration: underline; */
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    font-weight: 600;
+}

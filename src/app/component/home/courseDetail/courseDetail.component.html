@@ -1,0 +1,10 @@
+<div class="frame">
+    <div class="grid">
+        <h3>{{this.course.courseName}}</h3>
+
+        <div><span>Author : </span>{{this.course.author}}</div>
+        <div [ngStyle]="this.discountPrice?{'text-decoration':'line-through'}:{}"><span>Actual Price : </span>{{this.course.actualPrice}}</div>
+        <div><span>After discount : </span>{{this.discountPrice}}</div>
+        <div><span>Tags : </span>{{this.course.tags}}</div>
+    </div>
+</div>
