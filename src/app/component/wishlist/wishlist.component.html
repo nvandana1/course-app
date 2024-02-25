@@ -1,2 +1,7 @@
 <app-navbar></app-navbar>
-<div class="frame">Wishlist</div>
+<div class="frame">
+    <div *ngFor="let item of wishList;let i=index">
+        <app-courses [item]="item"></app-courses>
+    </div>
+
+</div>

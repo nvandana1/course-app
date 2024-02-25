@@ -6,6 +6,7 @@ import { Route, Router } from '@angular/router';
 import { CoursesComponent } from './courses/courses.component';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { MessageService } from 'src/app/services/message.service';
+import { CourseService } from 'src/app/services/course.service';
 
 export interface ICourse {
   courseName: string;
@@ -28,10 +29,11 @@ export class HomeComponent implements OnInit {
   banner = 'Discover Latest Courses on Angular';
   data!: ICourse[];
   slectedCourse!: ICourse;
+  cart!: ICourse[] ;
 
-  constructor(private route: Router,private ms:MessageService) {}
+  constructor(private route: Router,private ms:MessageService,private courseService:CourseService) {}
   ngOnInit(): void {
-    this.data = data;
+    this.data = this.courseService.getAllCourses();
   }
 
   courseDetail(course: ICourse) {
@@ -68,6 +70,7 @@ export class HomeComponent implements OnInit {
       this.data[i].cart = true;
       this.ms.alert('Added to cart','info');
     }
+    this.courseService.modifyCourse(this.data);
   }
 
   addToWishList(i:number,event:MouseEvent){
@@ -79,5 +82,7 @@ export class HomeComponent implements OnInit {
       else{
         this.ms.alert('Removed from Wishlist','info');
       }
+      this.courseService.modifyCourse(this.data);
+
     } 
 }

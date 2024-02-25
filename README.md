@@ -10,8 +10,8 @@ which has actual and discounted rate for that course.
 
 we can add the course to wishlist and cart.
 
-##Github page
+## Github page
 
 ng b --output-path docs --base-href /course-app/ 
 
-go to pages and add this docs as base path for the site
+Go to Github pages and add this docs as base path for the site
