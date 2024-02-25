@@ -10,6 +10,8 @@ which has actual and discounted rate for that course.
 
 we can add the course to wishlist and cart.
 
+In Cart there is a checkout button on click will move to wishlist 
+
 ## Github page
 
 ng b --output-path docs --base-href /course-app/ 
