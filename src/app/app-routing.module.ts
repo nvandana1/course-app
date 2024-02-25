@@ -5,14 +5,18 @@ import { HomeComponent } from './component/home/home.component';
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { LoginComponent } from './component/login/login.component';
+import { AuthGuard } from './auth.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'home/course-details', component: CourseDetailComponent },
-  { path: 'wishlist', component: WishlistComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent,canActivate:[AuthGuard] },
+  { path: '**', redirectTo: '/login' },
+  { path: 'login', component: LoginComponent },
+  { path: 'home/course-details', component: CourseDetailComponent ,canActivate:[AuthGuard]},
+  { path: 'wishlist', component: WishlistComponent ,canActivate:[AuthGuard]},
+  { path: 'cart', component: CartComponent ,canActivate:[AuthGuard]},
+  { path: 'profile', component: ProfileComponent ,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

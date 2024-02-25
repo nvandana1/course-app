@@ -4,7 +4,22 @@
     gap: 10px;
     padding: 10px;
 }
+form {
+    display: grid;
+    gap: 10px;
+    /* padding: 10px; */
+}
 
+.form-group {
+    display: grid;
+    gap: 10px;
+    /* padding: 10px; */
+}
+
+.login-container{
+    display: grid;
+    gap: 10px;
+}
 .grid-fit {
     @extend .grid;
     align-items: center;

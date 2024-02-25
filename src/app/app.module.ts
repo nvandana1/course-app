@@ -7,6 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { NavbarComponent } from "./component/navbar/navbar.component";
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { ProfileComponent } from './component/profile/profile.component';
         WishlistComponent,
         CartComponent,
         ProfileComponent,
+        NavbarComponent
     ]
 })
 export class AppModule { }

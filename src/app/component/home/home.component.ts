@@ -4,6 +4,7 @@ import data from 'src/assets/data.json';
 import { CourseDetailComponent } from './courseDetail/courseDetail.component';
 import { Route, Router } from '@angular/router';
 import { CoursesComponent } from './courses/courses.component';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 export interface ICourse {
   courseName: string;
@@ -15,11 +16,11 @@ export interface ICourse {
   wishlist?: boolean;
 }
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, CourseDetailComponent, CoursesComponent],
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [CommonModule, CourseDetailComponent, CoursesComponent, NavbarComponent]
 })
 export class HomeComponent implements OnInit {
   banner = 'Discover Latest Courses on Angular';
