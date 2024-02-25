@@ -1,7 +1,18 @@
 <nav class="navbar">
-    <img class="link" routerLink="/home" src="assets/logo.png" alt="logo" height="30" width="30">
-    <div class="link" routerLink="/home">Courses</div>
-    <div class="link" routerLink="/wishlist">Wish List</div>
-    <div class="link"  routerLink="/cart">Cart</div>
-    <div class="link"  routerLink="/profile">Profile</div>
-  </nav>
+  <img
+    class="link"
+    (click)="navigate('/home')"
+    src="assets/logo.png"
+    alt="logo"
+    height="30"
+    width="30"
+  />
+  <div class="link" (click)="navigate('/home')">Courses</div>
+  <div class="link" (click)="navigate('/wishlist')">
+    Wish List
+  </div>
+  <div class="link" (click)="navigate('/cart')" >Cart</div>
+  <div class="link" (click)="navigate('/profile')">
+    Profile
+  </div>
+</nav>

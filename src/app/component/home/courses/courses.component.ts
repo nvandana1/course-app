@@ -13,6 +13,9 @@ import { ICourse } from '../home.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesComponent {
+addToCart() {
+throw new Error('Method not implemented.');
+}
   @Input() item!:ICourse;
 
 

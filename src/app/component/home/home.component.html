@@ -4,6 +4,11 @@
     <div class="grid courses">
         <div *ngFor="let item of data;let i=index" class="grid card" (click)="courseDetail(item)">
            <app-courses [item]="item"></app-courses>
+           <div class="grid-fit wish-cart">
+            <button class="primary" (click)="addCart(i,$event)">Cart</button>
+        
+            <span (click)="addToWishList(i,$event)" [ngClass]="item.wishlist?'fa fa-star checked link':'fa fa-star link'"></span>
+        </div>
         </div>
     </div>
     
