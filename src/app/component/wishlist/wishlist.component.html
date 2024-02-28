@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 <div class="frame">
-    <div *ngFor="let item of wishList;let i=index">
-        <app-courses [item]="item"></app-courses>
-    </div>
+  <h1>Wishlist</h1>
+  <div *ngFor="let item of wishList;let i=index">
+    <app-courses [item]="item"></app-courses>
+    <button class="primary" (click)="moveToCart(i)">Wishlist</button>
+    <button class="error" (click)="removeFromWishList(i)">Remove Cart</button>
+  </div>
 
 </div>

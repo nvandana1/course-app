@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(i: number) {
+    // remove from cart
     this.cartList[i].cart = false;
     this.cartList = this.getCartList();
     this.courseService.modifyCourse(this.course);

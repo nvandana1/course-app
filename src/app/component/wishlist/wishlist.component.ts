@@ -4,6 +4,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { CoursesComponent } from "../home/courses/courses.component";
 import { ICourse } from '../home/home.component';
 import { CourseService } from 'src/app/services/course.service';
+import {MessageService} from "../../services/message.service";
 
 @Component({
     selector: 'app-wishlist',
@@ -15,7 +16,7 @@ import { CourseService } from 'src/app/services/course.service';
 export class WishlistComponent {
 wishList: any;
 course!: ICourse[];
-constructor(private courseService: CourseService) {}
+constructor(private courseService: CourseService,private ms:MessageService) {}
 ngOnInit(): void {
   this.courseService.courseList.subscribe((course) => (this.course = course));
   this.wishList = this.getWishList();
@@ -24,4 +25,20 @@ getWishList(): ICourse[] {
   return this.course.filter((course) => course.wishlist);
 }
 
+  moveToCart(i: number) {
+    // from cart move to wishlist
+    this.wishList[i].cart = true;
+    this.wishList[i].wishlist = false;
+    this.wishList = this.getWishList();
+    this.courseService.modifyCourse(this.course);
+    this.ms.alert('Moved to cart','info')
+  }
+
+  removeFromWishList(i: number) {
+    // remove from cart
+    this.wishList[i].wishList = false;
+    this.wishList = this.getWishList();
+    this.courseService.modifyCourse(this.course);
+    this.ms.alert('Removed from Wishlist','error');
+  }
 }
