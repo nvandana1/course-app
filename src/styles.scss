@@ -1,101 +1,120 @@
 /* You can add global styles to this file, and also import other style files */
-.grid{
-    display: grid;
-    gap: 10px;
-    padding: 10px;
+.grid {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
 }
+
 form {
-    display: grid;
-    gap: 10px;
-    /* padding: 10px; */
+  display: grid;
+  gap: 10px;
+  /* padding: 10px; */
 }
 
 .form-group {
-    display: grid;
-    gap: 10px;
-    /* padding: 10px; */
+  display: grid;
+  gap: 10px;
+  /* padding: 10px; */
 }
 
-.login-container{
-    display: grid;
-    gap: 10px;
+.login-container {
+  display: grid;
+  gap: 10px;
 }
+
 .grid-fit {
-    @extend .grid;
-    align-items: center;
+  @extend .grid;
+  align-items: center;
 }
-.box-shadow{
-    box-shadow: 6px 8px 11px -5px rgb(214 210 210 / 96%)
+
+.box-shadow {
+  box-shadow: 6px 8px 11px -5px rgb(214 210 210 / 96%)
 
 }
+
 .navbar {
-    @extend .box-shadow;
-    @extend .grid;
-    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
-    align-items: center;
-    justify-items: center;
-}
-*{
-    margin: 0;
+  @extend .box-shadow;
+  @extend .grid;
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+  align-items: center;
+  justify-items: center;
 }
 
-.link{
-    cursor: pointer;
+* {
+  margin: 0;
 }
 
-.frame{
-    display: block;
-    padding: 10px;
-    height: 100vh;
-    overflow: auto;
+.link {
+  cursor: pointer;
 }
 
-.text-align-center{
-    text-align: center;
+.frame {
+  display: block;
+  padding: 10px;
+  height: 100vh;
+  overflow: auto;
 }
 
-.card{
-    border: 0.5px solid #e4e0e0;
-    border-radius: 10px;
+.text-align-center {
+  text-align: center;
 }
 
-.card:hover{
-    @extend .box-shadow;
+.card {
+  border: 0.5px solid #e4e0e0;
+  border-radius: 10px;
+}
+
+.card:hover {
+  @extend .box-shadow;
 
 }
 
-button.primary{
-    background: #79aef7;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
+.base-button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px;
 }
 
-button:hover{
-    cursor: pointer;
+button.primary {
+  background: #79aef7;
+  @extend .base-button;
 }
 
-.err{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 15px 20px;
-    background-color: #f44336;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+button.error {
+  background: #f44336;
+  color: white;
+  @extend .base-button
 }
-.info{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 15px 20px;
-    background-color: #136aec;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 7px -1px rgb(186 186 186)
+
+}
+
+.err {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 15px 20px;
+  background-color: #f44336;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.info {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 15px 20px;
+  background-color: #136aec;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }

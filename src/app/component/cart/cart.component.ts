@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CourseService } from 'src/app/services/course.service';
 import { CoursesComponent } from '../home/courses/courses.component';
 import { ICourse } from '../home/home.component';
+import {MessageService} from "../../services/message.service";
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ import { ICourse } from '../home/home.component';
 export class CartComponent implements OnInit {
   cartList!: ICourse[];
   course!: ICourse[];
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService,private ms:MessageService) {}
   ngOnInit(): void {
     this.courseService.courseList.subscribe((course) => (this.course = course));
     this.cartList = this.getCartList();
@@ -30,6 +31,15 @@ export class CartComponent implements OnInit {
     this.cartList[i].wishlist = true;
     this.cartList = this.getCartList();
     this.courseService.modifyCourse(this.course);
+    this.ms.alert('Moved to wishlist','info')
+
+  }
+
+  removeFromCart(i: number) {
+    this.cartList[i].cart = false;
+    this.cartList = this.getCartList();
+    this.courseService.modifyCourse(this.course);
+    this.ms.alert('Removed from Cart','error');
 
   }
 }
