@@ -43,4 +43,16 @@ export class CartComponent implements OnInit {
     this.ms.alert('Removed from Cart','error');
 
   }
+
+  checkout() {
+   if ( window.confirm('Are You sure you want to checkout?')){
+     this.cartList = [];
+     this.course.map(course=>{
+       course.cart = false;
+       return course
+     });
+     this.courseService.modifyCourse(this.course);
+     this.ms.alert('Order placed','info');
+   }
+  }
 }

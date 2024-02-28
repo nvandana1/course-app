@@ -1,10 +1,18 @@
 <app-navbar></app-navbar>
 <h1>Cart</h1>
 <div class="frame">
-    <div *ngFor="let item of cartList;let i=index">
-        <app-courses [item]="item"></app-courses>
-        <button class="primary" (click)="moveToWish(i)">Wishlist</button>
-        <button class="error" (click)="removeFromCart(i)">Remove Cart</button>
+  <div>
+    <div *ngIf="cartList.length>0">
+      <button class="primary" (click)="checkout()">Checkout</button>
+      <h4>Cart Value:</h4><span>{{}}</span>
+      <h4>Savings:</h4><span>{{}}</span>
     </div>
+    <div *ngFor="let item of cartList;let i=index">
+      <app-courses [item]="item"></app-courses>
+      <button class="primary" (click)="moveToWish(i)">Wishlist</button>
+      <button class="error" (click)="removeFromCart(i)">Remove Cart</button>
+    </div>
+  </div>
+
 
 </div>
