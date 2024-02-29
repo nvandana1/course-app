@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   isAuthenticated = false;
   constructor() { }
-  
+
   canLogin(username:string,password:string){
-    if(username && password === 'dummy@123'){
+    if(username && password === 'Password123'){
       this.isAuthenticated = true;
       return true;
     }
