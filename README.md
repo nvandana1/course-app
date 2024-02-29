@@ -16,7 +16,7 @@ which has actual and discounted rate for that course.
 
 # Required Installation
 * Node Js (v21.6.2)
-* Angular Cli 
+* Angular Cli (v17.2.3)
 * IDE (VScode/Webstorm)
 
 ## Github page
