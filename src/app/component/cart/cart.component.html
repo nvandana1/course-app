@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<h1>Cart</h1>
 <div class="frame">
+  <h1>Cart</h1>
   <div>
     <div *ngIf="cartList.length>0">
       <button class="primary" (click)="checkout()">Checkout</button>
@@ -8,6 +8,7 @@
       <div class="padding-left bold">Cart Value: <span>₹{{this.totalPrice}}</span></div>
       <div class="padding-left bold">Savings: <span>₹{{this.savings}}</span></div>
     </div>
+    <div *ngIf="cartList.length===0" class="hyper-link padding-left" (click)="goToHome()">Add Course To Cart</div>
     <div *ngFor="let item of cartList;let i=index">
       <app-courses [item]="item"></app-courses>
       <button class="primary" (click)="moveToWish(i)">Wishlist</button>

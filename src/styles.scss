@@ -60,7 +60,13 @@ form {
 .link {
   cursor: pointer;
 }
+.hyper-link{
+  @extend .link;
 
+}
+.hyper-link:hover{
+  color: #136aec;
+}
 .frame {
   display: block;
   padding: 10px;

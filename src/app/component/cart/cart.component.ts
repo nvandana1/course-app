@@ -6,6 +6,7 @@ import {CoursesComponent} from '../home/courses/courses.component';
 import {ICourse} from '../home/home.component';
 import {MessageService} from "../../services/message.service";
 import {Parser} from "@angular/compiler";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
   totalPrice:number=0;
   savings: number=0;
 
-  constructor(private courseService: CourseService, private ms: MessageService) {
+  constructor(private courseService: CourseService, private ms: MessageService,private route:Router) {
   }
 
   ngOnInit(): void {
@@ -72,5 +73,9 @@ export class CartComponent implements OnInit {
       this.courseService.modifyCourse(this.course);
       this.ms.alert('Order placed', 'info');
     }
+  }
+
+  goToHome() {
+    this.route.navigate(['/home'])
   }
 }

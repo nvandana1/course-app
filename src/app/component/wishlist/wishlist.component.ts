@@ -5,6 +5,7 @@ import { CoursesComponent } from "../home/courses/courses.component";
 import { ICourse } from '../home/home.component';
 import { CourseService } from 'src/app/services/course.service';
 import {MessageService} from "../../services/message.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-wishlist',
@@ -16,7 +17,7 @@ import {MessageService} from "../../services/message.service";
 export class WishlistComponent {
 wishList: any;
 course!: ICourse[];
-constructor(private courseService: CourseService,private ms:MessageService) {}
+constructor(private courseService: CourseService,private ms:MessageService,private route:Router) {}
 ngOnInit(): void {
   this.courseService.courseList.subscribe((course) => (this.course = course));
   this.wishList = this.getWishList();
@@ -40,5 +41,9 @@ getWishList(): ICourse[] {
     this.wishList = this.getWishList();
     this.courseService.modifyCourse(this.course);
     this.ms.alert('Removed from Wishlist','error');
+  }
+
+  goToHome() {
+    this.route.navigate(['/home'])
   }
 }
