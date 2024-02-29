@@ -14,6 +14,8 @@ which has actual and discounted rate for that course.
 
 * In the cart listing page we have checkout option which will raise a pop up, on click of ok the 'order successfully placed' message will appear, clearing the cart items in the list.
 
+* Have pagination for listing pages.
+
 # Required Installation
 * Node Js (v21.6.2)
 * Angular Cli (v17.2.3)
