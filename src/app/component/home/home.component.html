@@ -1,15 +1,23 @@
-<app-navbar></app-navbar>
-<div class="frame">
-    <h1 class="text-align-center banner">{{banner}}</h1>
+<div>
+  <app-navbar></app-navbar>
+  <div class="frame">
     <div class="grid courses">
-        <div *ngFor="let item of data;let i=index" class="grid card" (click)="courseDetail(item)">
-           <app-courses [item]="item"></app-courses>
-           <div class="grid-fit wish-cart">
-            <button class="primary" (click)="addCart(i,$event)">Cart</button>
-        
-            <span (click)="addToWishList(i,$event)" [ngClass]="item.wishlist?'fa fa-star checked link':'fa fa-star link'"></span>
+      <div *ngFor="let item of paginatedData;let i=index" class="grid card" (click)="courseDetail(item)">
+        <app-courses [item]="item"></app-courses>
+        <div class="grid-fit wish-cart">
+          <button class="primary" (click)="addCart(i,$event)">Cart</button>
+
+          <span (click)="addToWishList(i,$event)"
+                [ngClass]="item.wishlist?'fa fa-star checked link':'fa fa-star link'"></span>
         </div>
-        </div>
+      </div>
+
     </div>
-    
+    <div>
+      <button class="primary" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+      <span>{{ currentPage }} / {{ totalPages }}</span>
+      <button class="primary" [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next
+      </button>
+    </div>
+  </div>
 </div>
