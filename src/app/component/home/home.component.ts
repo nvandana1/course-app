@@ -15,6 +15,7 @@ export interface ICourse {
   discountPercentage: string;
   tags: string[];
   cart?: boolean;
+  discountPrice?:number;
   wishlist?: boolean;
 }
 @Component({
@@ -34,6 +35,10 @@ export class HomeComponent implements OnInit {
   constructor(private route: Router,private ms:MessageService,private courseService:CourseService) {}
   ngOnInit(): void {
     this.data = this.courseService.getAllCourses();
+    this.data.map(course=>{
+      course.discountPrice = (parseInt(course.actualPrice.substring(1))/100) * parseInt(course.discountPercentage)
+      return course
+    })
   }
 
   courseDetail(course: ICourse) {
@@ -43,6 +48,7 @@ export class HomeComponent implements OnInit {
       author,
       actualPrice,
       discountPercentage,
+      discountPrice,
       tags,
       cart,
       wishlist,
@@ -53,10 +59,11 @@ export class HomeComponent implements OnInit {
         author,
         actualPrice,
         discountPercentage,
+        discountPrice,
         tags,
         cart,
         wishlist
-      },
+      }
     });
   }
 
@@ -84,5 +91,5 @@ export class HomeComponent implements OnInit {
       }
       this.courseService.modifyCourse(this.data);
 
-    } 
+    }
 }

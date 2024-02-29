@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { CommonModule } from '@angular/common';
-import { CourseService } from 'src/app/services/course.service';
-import { CoursesComponent } from '../home/courses/courses.component';
-import { ICourse } from '../home/home.component';
+import {Component, OnInit} from '@angular/core';
+import {NavbarComponent} from '../navbar/navbar.component';
+import {CommonModule} from '@angular/common';
+import {CourseService} from 'src/app/services/course.service';
+import {CoursesComponent} from '../home/courses/courses.component';
+import {ICourse} from '../home/home.component';
 import {MessageService} from "../../services/message.service";
+import {Parser} from "@angular/compiler";
 
 @Component({
   selector: 'app-cart',
@@ -16,11 +17,28 @@ import {MessageService} from "../../services/message.service";
 export class CartComponent implements OnInit {
   cartList!: ICourse[];
   course!: ICourse[];
-  constructor(private courseService: CourseService,private ms:MessageService) {}
+  totalPrice:number=0;
+  savings: number=0;
+
+  constructor(private courseService: CourseService, private ms: MessageService) {
+  }
+
   ngOnInit(): void {
     this.courseService.courseList.subscribe((course) => (this.course = course));
     this.cartList = this.getCartList();
+    this.cartList.forEach(cart => {
+      this.totalPrice = this.totalPrice + parseInt(cart.actualPrice.substring(1));
+    })
+
+    this.cartList.forEach(cart => {
+      if (cart.discountPrice) {
+        const diff = parseInt(cart.actualPrice.substring(1)) - cart?.discountPrice;
+        this.savings = this.savings+diff;
+      }
+      console.log(this.savings)
+    })
   }
+
   getCartList(): ICourse[] {
     return this.course.filter((course) => course.cart);
   }
@@ -31,7 +49,7 @@ export class CartComponent implements OnInit {
     this.cartList[i].wishlist = true;
     this.cartList = this.getCartList();
     this.courseService.modifyCourse(this.course);
-    this.ms.alert('Moved to wishlist','info')
+    this.ms.alert('Moved to wishlist', 'info')
 
   }
 
@@ -40,19 +58,19 @@ export class CartComponent implements OnInit {
     this.cartList[i].cart = false;
     this.cartList = this.getCartList();
     this.courseService.modifyCourse(this.course);
-    this.ms.alert('Removed from Cart','error');
+    this.ms.alert('Removed from Cart', 'error');
 
   }
 
   checkout() {
-   if ( window.confirm('Are You sure you want to checkout?')){
-     this.cartList = [];
-     this.course.map(course=>{
-       course.cart = false;
-       return course
-     });
-     this.courseService.modifyCourse(this.course);
-     this.ms.alert('Order placed','info');
-   }
+    if (window.confirm('Are You sure you want to checkout?')) {
+      this.cartList = [];
+      this.course.map(course => {
+        course.cart = false;
+        return course
+      });
+      this.courseService.modifyCourse(this.course);
+      this.ms.alert('Order placed', 'info');
+    }
   }
 }

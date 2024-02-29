@@ -4,8 +4,9 @@
   <div>
     <div *ngIf="cartList.length>0">
       <button class="primary" (click)="checkout()">Checkout</button>
-<!--      <h4>Cart Value:</h4><span>{{}}</span>-->
-<!--      <h4>Savings:</h4><span>{{}}</span>-->
+
+      <div class="padding-left bold">Cart Value: <span>₹{{this.totalPrice}}</span></div>
+      <div class="padding-left bold">Savings: <span>₹{{this.savings}}</span></div>
     </div>
     <div *ngFor="let item of cartList;let i=index">
       <app-courses [item]="item"></app-courses>
