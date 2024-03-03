@@ -5,7 +5,7 @@
     <div *ngIf="cartList.length>0">
       <button class="primary" (click)="checkout()">Checkout</button>
 
-      <div class="padding-left bold">Cart Value: <span>₹{{this.totalPrice}}</span></div>
+      <div class="padding-left bold">Cart Value: <span>₹{{this.cartPrice}}</span></div>
       <div class="padding-left bold">Savings: <span>₹{{this.savings}}</span></div>
     </div>
     <div *ngIf="cartList.length===0" class="hyper-link padding-left" (click)="goToHome()">Add Course To Cart</div>

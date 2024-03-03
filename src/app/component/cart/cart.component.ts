@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   course!: ICourse[];
   totalPrice:number=0;
   savings: number=0;
+  cartPrice: number =0;
 
   constructor(private courseService: CourseService, private ms: MessageService,private route:Router) {
   }
@@ -33,11 +34,11 @@ export class CartComponent implements OnInit {
 
     this.cartList.forEach(cart => {
       if (cart.discountPrice) {
-        const diff = parseInt(cart.actualPrice.substring(1)) - cart?.discountPrice;
+        const diff =cart?.discountPrice;
         this.savings = this.savings+diff;
       }
-      console.log(this.savings)
     })
+    this.cartPrice = this.totalPrice-this.savings;
   }
 
   getCartList(): ICourse[] {
