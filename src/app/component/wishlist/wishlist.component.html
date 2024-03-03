@@ -4,7 +4,7 @@
   <div *ngFor="let item of wishList;let i=index">
     <app-courses [item]="item"></app-courses>
     <button class="primary" (click)="moveToCart(i)">Cart</button>
-    <button class="error" (click)="removeFromWishList(i)">Remove Cart</button>
+    <button class="error" (click)="removeFromWishList(i)">Remove WishList</button>
   </div>
   <div *ngIf="wishList.length===0" class="hyper-link padding-left" (click)="goToHome()">Add Course To WishList</div>
 

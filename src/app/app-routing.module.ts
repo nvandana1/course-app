@@ -7,6 +7,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth.service';
+import { ResumeComponent } from './component/profile/resume/resume.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'wishlist', component: WishlistComponent ,canActivate:[AuthGuard]},
   { path: 'cart', component: CartComponent ,canActivate:[AuthGuard]},
   { path: 'profile', component: ProfileComponent ,canActivate:[AuthGuard]},
+  { path: 'profile/resume', component: ResumeComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -1,13 +1,25 @@
-
 <app-navbar></app-navbar>
 
 <div class="frame">
-    <div class="grid">
-        <h3>{{this.course.courseName}}</h3>
+  <div class="grid">
+    <h3>{{ this.course.courseName }}</h3>
 
-        <div><span>Author : </span>{{this.course.author}}</div>
-        <div [ngStyle]="this.discountPrice?{'text-decoration':'line-through'}:{}"><span>Actual Price : </span>{{this.course.actualPrice}}</div>
-        <div><span>After discount : </span>{{this.discountPrice}}</div>
-        <div><span>Tags : </span>{{this.course.tags}}</div>
+    <div><span>Author : </span>{{ this.course.author }}</div>
+    <div
+      [ngStyle]="
+        this.discountPrice ? { 'text-decoration': 'line-through' } : {}
+      "
+    >
+      <span>Actual Price : </span>{{ this.course.actualPrice }}
     </div>
+    <div><span>After discount : </span>{{ this.discountPrice }}</div>
+    <div><span>Tags : </span>{{ this.course.tags }}</div>
+  </div>
+
+  <iframe
+    width="420"
+    height="345"
+    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"
+  >
+  </iframe>
 </div>

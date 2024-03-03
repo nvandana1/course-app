@@ -16,6 +16,8 @@ which has actual and discounted rate for that course.
 
 * Have pagination for listing pages.
 
+* Have a resume pdf embeded to download or view.
+
 # Required Installation
 * Node Js (v21.6.2)
 * Angular Cli (v17.2.3)

@@ -13,7 +13,7 @@
       </div>
 
     </div>
-    <div>
+    <div class="pagination-container">
       <button class="primary" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
       <span>{{ currentPage }} / {{ totalPages }}</span>
       <button class="primary" [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next
