@@ -1,6 +1,7 @@
 <div>
   <app-navbar></app-navbar>
   <div class="frame">
+    <div class="padding-left"><input [(ngModel)]="search" (ngModelChange)="searchEv($event)" placeholder="Search by Tag"></div>
     <div class="grid courses">
       <div *ngFor="let item of paginatedData;let i=index" class="grid card" (click)="courseDetail(item)">
         <app-courses [item]="item"></app-courses>

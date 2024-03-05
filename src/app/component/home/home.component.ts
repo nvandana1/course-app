@@ -8,6 +8,7 @@ import {NavbarComponent} from "../navbar/navbar.component";
 import {MessageService} from 'src/app/services/message.service';
 import {CourseService} from 'src/app/services/course.service';
 import {PaginationService} from "../../services/pagination.service";
+import {FormsModule} from "@angular/forms";
 
 export interface ICourse {
   courseName: string;
@@ -25,7 +26,7 @@ export interface ICourse {
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, CourseDetailComponent, CoursesComponent, NavbarComponent]
+  imports: [CommonModule, CourseDetailComponent, CoursesComponent, NavbarComponent, FormsModule]
 })
 export class HomeComponent implements OnInit {
 
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit {
   currentPage = 1;
   totalPages!: number;
   paginatedData!: any[];
+  search!: string;
 
   constructor(private route: Router, private ms: MessageService, private courseService: CourseService, private paginationService: PaginationService) {
   }
@@ -51,10 +53,12 @@ export class HomeComponent implements OnInit {
     this.totalPages = this.paginationService.getPageCount(this.data.length, this.pageSize);
     this.paginateData();
   }
+
   onPageChange(pageNumber: number): void {
     this.currentPage = pageNumber;
     this.paginateData();
   }
+
   courseDetail(course: ICourse) {
     this.slectedCourse = course;
     const {
@@ -107,5 +111,13 @@ export class HomeComponent implements OnInit {
 
   private paginateData() {
     this.paginatedData = this.paginationService.paginate(this.data, this.currentPage, this.pageSize);
+  }
+
+  searchEv(val: any) {
+    this.data=this.courseService.getAllCourses().filter(c=> {
+      return c.tags.findIndex(tag=>tag.includes(val))>-1;
+
+    })
+    this.paginateData();
   }
 }
